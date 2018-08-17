@@ -2,6 +2,6 @@
 
 @section('content')
 
-<p>You are logged in!</p>
+<h1>This is a test</h1>
 
 @endsection
