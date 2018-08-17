@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', 'PagesController@test')->name('test');
+Route::get('/cards', 'CardsController@index');
+Route::get('/cards/{card}', 'CardsController@show');
