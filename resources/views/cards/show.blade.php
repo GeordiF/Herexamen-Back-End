@@ -19,7 +19,8 @@
 <hr>
 
   <h4>Add a New Comment</h4>
-    <form>
+    <form method="post" action="/cards/{{$card->id}}/notes">
+      {{ csrf_field() }}                                                        <!-- the CSRF protection middleware can validate the request-->
       <div class="form-group">
         <textarea name="body" class="form-control"></textarea>
       </div>
