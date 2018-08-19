@@ -24,6 +24,9 @@ Route::get('/cards/{card}', 'CardsController@show');
 Route::get('/create', 'CardsController@create');
 Route::get('/notes/{note}/edit', 'NotesController@edit');
 Route::patch('/notes/{note}', 'NotesController@update');
+Route::get('/cards/{card}/edit', 'CardsController@edit');
+Route::put('/cards/{card}', 'CardsController@update');
+Route::delete('/cards/{card}', 'CardsController@destroy');
 
 Route::post('cards/{card}/notes', 'NotesController@store');
 Route::post('cards', 'CardsController@store');

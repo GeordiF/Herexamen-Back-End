@@ -7,6 +7,12 @@
   <p>{{$card->created_at}}</p>
   <p>{{$card->updated_at}}</p>
 
+  <a href="/cards/{{$card->id}}/edit" class="btn btn-secondary">Edit</a>
+  {!!Form::open(['action' => ['CardsController@destroy', $card->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+    {{Form::hidden('_method', 'DELETE')}}
+    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+  {!!Form::close()!!}
+
 <hr>
 
 <ul class="list-group">

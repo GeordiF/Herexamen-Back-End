@@ -39,4 +39,31 @@ class CardsController extends Controller
 
     return back();
   }
+
+  public function edit($card)
+  {
+    $card = Card::find($card);
+    return view('cards.edit', compact('card'));
+  }
+
+  public function update(Request $request, $card)
+  {
+    $this->validate($request, [
+      'title' => 'required'
+    ]);
+    //create a card
+    $card = Card::find($card);
+    $card->title = $request->input('title');
+    $card->save();
+
+    return redirect('/cards');
+  }
+
+  public function destroy(Request $request, $card)
+  {
+    $card = Card::find($card);
+    $card->delete();
+
+    return redirect('/cards');
+  }
 }
