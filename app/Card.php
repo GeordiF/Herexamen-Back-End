@@ -9,8 +9,10 @@ class Card extends Model
 {
   use SoftDeletes;
   protected $table = 'cards';
+  const DATE = ['date'];
   protected $fillable = ['title'];
-  protected $dates = ['deleted_at']; 
+  const BODY = ['body'];
+  protected $dates = ['deleted_at'];
 
   public function notes()
   {

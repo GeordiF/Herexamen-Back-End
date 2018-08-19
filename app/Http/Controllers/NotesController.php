@@ -29,6 +29,6 @@ class NotesController extends Controller
     {
       $note->update($request->all());
 
-      return back();
+      return redirect('/cards');
     }
 }

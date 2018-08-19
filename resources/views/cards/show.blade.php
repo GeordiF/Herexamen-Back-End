@@ -4,8 +4,13 @@
 
 <div class="container">
   <h1>{{$card->title}}</h1>
-  <p>{{$card->created_at}}</p>
-  <p>{{$card->updated_at}}</p>
+  <h4>{{$card->body}}</h4>
+  <hr>
+  <p><small>Created: {{$card->created_at}}</small></p>
+  <p class="float-right">Due Date: {{$card->date}}</p>
+  <p><small>Updated: {{$card->updated_at}}</small></p>
+
+  <hr>
 
   <a href="/cards/{{$card->id}}/edit" class="btn btn-secondary">Edit</a>
   {!!Form::open(['action' => ['CardsController@destroy', $card->id], 'method' => 'POST', 'class' => 'float-right'])!!}

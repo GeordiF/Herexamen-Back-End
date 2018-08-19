@@ -30,11 +30,14 @@ class CardsController extends Controller
   public function store(Request $request)
   {
     $this->validate($request, [
-      'title' => 'required'
+      'title' => 'required',
+      'date' => 'required'
     ]);
     //create a card
     $card = new Card;
     $card->title = $request->input('title');
+    $card->body = $request->input('body');
+    $card->date = $request->input('date');
     $card->save();
 
     return back();
@@ -49,11 +52,14 @@ class CardsController extends Controller
   public function update(Request $request, $card)
   {
     $this->validate($request, [
-      'title' => 'required'
+      'title' => 'required',
+      'date' => 'required'
     ]);
     //create a card
     $card = Card::find($card);
     $card->title = $request->input('title');
+    $card->body = $request->input('body');
+    $card->date = $request->input('date');
     $card->save();
 
     return redirect('/cards');
