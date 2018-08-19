@@ -12,7 +12,7 @@
 <ul class="list-group">
     <h4>Comments</h4>
   @foreach ($card->notes as $note)
-    <li class="list-group-item">{{$note->body}}</li>
+    <a href="/notes/{{$note->id}}/edit"><li class="list-group-item">{{$note->body}}</li></a>
   @endforeach
 </ul>
 

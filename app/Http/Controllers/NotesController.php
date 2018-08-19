@@ -17,6 +17,18 @@ class NotesController extends Controller
 
       $card->notes()->save($note);
 
-      return back(); 
+      return back();
+    }
+
+    public function edit(Note $note)
+    {
+      return view('notes.edit', compact('note'));
+    }
+
+    public function update(Request $request, Note $note)
+    {
+      $note->update($request->all());
+
+      return back();
     }
 }
