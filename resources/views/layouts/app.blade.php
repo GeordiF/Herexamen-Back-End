@@ -86,6 +86,7 @@
                               @endif
 
                               @if (Auth::check())
+                                @include('inc.messages')
                                 @yield('content')
                               @else
                                 <h4>Log in or register to see to do items!</h4>

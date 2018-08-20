@@ -11,6 +11,10 @@ class NotesController extends Controller
     public function store(Request $request, Card $card)
     {
 
+      $this->validate($request, [
+        'body' => 'required',
+      ]);
+
       $note = new Note;
 
       $note->body = $request->body;
@@ -27,6 +31,9 @@ class NotesController extends Controller
 
     public function update(Request $request, Note $note)
     {
+      $this->validate($request, [
+        'body' => 'required',
+      ]);
       $note->update($request->all());
 
       return redirect('/cards');
