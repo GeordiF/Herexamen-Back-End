@@ -12,6 +12,7 @@ class Card extends Model
   const DATE = ['date'];
   protected $fillable = ['title'];
   const BODY = ['body'];
+  const ISDONE = ['isDone'];
   protected $dates = ['deleted_at'];
 
   public function notes()

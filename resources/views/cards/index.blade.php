@@ -29,9 +29,11 @@
           <div class="form-group">
               {{Form::label('body', 'Body')}}
               {{Form::text('body', '', ['class' =>'form-control', 'placeholder' => 'body'])}}
+              {{Form::hidden('isDone', 0, false)}}
+          </div>
 
-          {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
       </form>
-  </div>
+
 @endsection

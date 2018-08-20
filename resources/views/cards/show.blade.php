@@ -9,7 +9,6 @@
   <p><small>Created: {{$card->created_at}}</small></p>
   <p class="float-right">Due Date: {{$card->date}}</p>
   <p><small>Updated: {{$card->updated_at}}</small></p>
-
   <hr>
 
   <a href="/cards/{{$card->id}}/edit" class="btn btn-secondary">Edit</a>

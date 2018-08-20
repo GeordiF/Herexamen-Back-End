@@ -15,8 +15,12 @@
           {{Form::text('title', $card->title, ['class' =>'form-control', 'placeholder' => 'Title'])}}
       </div>
       <div class="form-group">
-          {{Form::label('body', 'Body')}}
-          {{Form::text('body', '$card->body', ['class' =>'form-control', 'placeholder' => 'Body'])}}
+          {{Form::label('body', 'Description')}}
+          {{Form::text('body', $card->body, ['class' =>'form-control', 'placeholder' => 'Body'])}}
+      </div>
+      <div class="form-group float-right">
+          {{Form::label('isDone', 'Done' )}}
+          {{Form::checkbox('isDone', 1, false)}}
       </div>
       {{Form::hidden('_method', 'PUT')}}
       {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}

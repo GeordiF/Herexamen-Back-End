@@ -11,7 +11,7 @@ class CardsController extends Controller
   public function index()
   {
 
-        $cards = Card::all();
+        $cards = Card::all()->where('isDone', '0');
         return view('cards.index', compact('cards'));
   }
 
@@ -31,6 +31,7 @@ class CardsController extends Controller
   {
     $this->validate($request, [
       'title' => 'required',
+      'body' => 'required',
       'date' => 'required'
     ]);
     //create a card
@@ -38,6 +39,7 @@ class CardsController extends Controller
     $card->title = $request->input('title');
     $card->body = $request->input('body');
     $card->date = $request->input('date');
+    $card->isDone = $request->input('isDone');
     $card->save();
 
     return back();
@@ -53,12 +55,14 @@ class CardsController extends Controller
   {
     $this->validate($request, [
       'title' => 'required',
+      'body' => 'required',
       'date' => 'required'
     ]);
-    //create a card
+    //update a card
     $card = Card::find($card);
     $card->title = $request->input('title');
     $card->body = $request->input('body');
+    $card->isDone = $request->input('isDone');
     $card->date = $request->input('date');
     $card->save();
 
@@ -71,5 +75,11 @@ class CardsController extends Controller
     $card->delete();
 
     return redirect('/cards');
+  }
+
+  public function done()
+  {
+    $cards = Card::all()->where('isDone', '1');
+    return view('cards.done', compact('cards'));
   }
 }
